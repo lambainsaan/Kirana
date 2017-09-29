@@ -8,11 +8,15 @@ import { AppComponent } from './app.component';
 import 'hammerjs';
 import { ItemsComponent } from './items/items.component';
 import { ItemService } from './services/item.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
