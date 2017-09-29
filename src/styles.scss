@@ -5,3 +5,17 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
+
+
+.container {
+  margin: 20px;
+  display: flex;
+}
+
+// To resize the size of the image displayed in the item component
+
+.item{
+  max-width: 20em;
+  max-height: 20em;
+
+}
