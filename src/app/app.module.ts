@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import 'hammerjs';
 import { ItemsComponent } from './items/items.component';
-
+import { ItemService } from './services/item.service';
 
 @NgModule({
   declarations: [
@@ -21,10 +21,10 @@ import { ItemsComponent } from './items/items.component';
     FlexLayoutModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
 
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
