@@ -13,9 +13,12 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
 import { ItemService } from './services/item.service';
+import { PromotionService } from './services/promotion.service';
+
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import 'hammerjs';
+import { ItemdetailComponent } from './itemdetail/itemdetail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import 'hammerjs';
     HomeComponent,
     AboutComponent,
     ContactComponent,
+    ItemdetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ import 'hammerjs';
     MatToolbarModule,
     AppRoutingModule
   ],
-  providers: [ItemService],
+  providers: [ItemService, PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

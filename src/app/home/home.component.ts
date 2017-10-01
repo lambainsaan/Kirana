@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Item } from '../shared/item';
+import { ItemService } from '../services/item.service';
+import { Promotion } from '../shared/promotion';
+import { PromotionService } from '../services/promotion.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  item: Item;
+  promotion: Promotion;
+
+  constructor(private itemservice: ItemService,
+    private promotionservice: PromotionService) { }
 
   ngOnInit() {
+    this.item = this.itemservice.getFeaturedItem();
+    this.promotion = this.promotionservice.getFeaturedPromotion();
   }
 
 }
