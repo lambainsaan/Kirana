@@ -8,12 +8,15 @@
   </div>
 
   <div fxFlex>
-    <md-grid-list cols="4" rowHeight="200px" gutterSize="1em">
+    <md-grid-list cols="4" rowHeight="400px" gutterSize="1em">
       <md-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]">
-        <img height="200px" src={{item.image}} alt={{item.name}}>
-        <md-grid-tile-footer>
-          <h1 md-line>{{item.name | uppercase}}</h1>
-        </md-grid-tile-footer>
+        <md-card>
+          <img md-card-image height="200px" src={{item.image}} alt={{item.name}} class=".md-unstyled-image">
+          <md-card-subtitle>
+            {{item.name | uppercase}}
+          </md-card-subtitle>
+          <md-card-content>&#x20B9; {{ item.price }}</md-card-content>
+        </md-card>
       </md-grid-tile>
     </md-grid-list>
   </div>

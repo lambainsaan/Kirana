@@ -1,8 +1,18 @@
+.test1 {
+  background-color: #EB0808
+}
+
+.test2 {
+  background-color: #F2FD1C
+}
+
+
 $lt-gray: #ddd;
-$background-dark: #7FE0AB;
-$background-light: #A04971;
-$background-pale: #D1C4E9;
-$background-moredark: #4527A0;
+$background-dark: #E95A5C;
+$background-light: #F25D5F;
+$background-pale: #F5B9BA;
+$background-moredark: #FA3A3D;
+
 
 
 @mixin zero-margin($pad-up-down, $pad-left-right) {
@@ -16,7 +26,9 @@ $background-moredark: #4527A0;
   background: $background-light;
   color: floralwhite;
   min-height: 150px;
+  text-decoration-color: #ddd
 }
+
 
 .active {
   background: $background-moredark;
