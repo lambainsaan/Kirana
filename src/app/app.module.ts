@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdToolbarModule, MatGridListModule, MatListModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatDialogModule } from '@angular/material';
+import { MdToolbarModule, MatGridListModule, MatListModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatDialogModule, MatSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormControl, Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import 'hammerjs';
 import { ItemdetailComponent } from './itemdetail/itemdetail.component';
 import { LoginComponent } from './login/login.component';
+import { OrderformComponent } from './orderform/orderform.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     ItemdetailComponent,
     LoginComponent,
+    OrderformComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +49,13 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatInputModule, 
+    MatInputModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatSelectModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [ItemService, PromotionService],
   bootstrap: [AppComponent],

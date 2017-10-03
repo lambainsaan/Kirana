@@ -1,0 +1,52 @@
+<div fxFlex fxFlexOffset="20px" class="form-size">
+  <h3>Order</h3>
+  <p>{{ orderForm.value | json }} {{ orderForm.status | json }}</p>
+
+  <form novalidate [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <p>
+      <md-input-container class="half-width" dividerColor="{{(orderForm.get('name').hasError('required') && orderForm.get('name').touched) ? 'warn' : 'primary'}}">
+          <input mdInput formControlName="name" placeholder="Name" type="text" required >
+          <md-hint>
+            <span [hidden]="!(orderForm.get('name').hasError('required') && orderForm.get('name').touched)">
+                  Name is required</span>
+          </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="half-width" dividerColor="{{(orderForm.get('mobileNum').hasError('required') && orderForm.get('mobileNum').touched) ? 'warn' : 'primary'}}">
+        <input mdInput formControlName="mobileNum" placeholder="Mobile Number" type="tel" required>
+        <md-hint>
+          <span [hidden]="!(orderForm.get('mobileNum').hasError('required') && orderForm.get('mobileNum').touched)">
+                  Mobile Number is required</span>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="full-width" dividerColor="{{(orderForm.get('address').hasError('required') && orderForm.get('address').touched) ? 'warn' : 'primary'}}">
+        <textarea mdInput formControlName="address" placeholder="Address" rows=12></textarea>
+        <md-hint>
+          <span [hidden]="!(orderForm.get('address').hasError('required') && orderForm.get('address').touched)">
+                  Address is required</span>
+        </md-hint>
+      </md-input-container>
+      <md-input-container dividerColor="{{(orderForm.get('landmark').hasError('required') && orderForm.get('landmark').touched) ? 'warn' : 'primary'}}">
+        <input mdInput formControlName="landmark" placeholder="Nearest Landmark" type="text">
+        <md-hint>
+          <span [hidden]="!(orderForm.get('address').hasError('required') && orderForm.get('address').touched)">
+                  Address is required</span>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <md-select placeholder="Time Slot" formControlName="slot" required dividerColor="{{(orderForm.get('slot').hasError('required') && orderForm.get('slot').touched) ? 'warn' : 'primary'}}">
+      <md-option *ngFor="let slot of slots" [value]="slot">
+        {{ slot }}
+      </md-option>
+    </md-select>
+    <p>
+      <md-input-container class="full-width">
+        <textarea mdInput formControlName="specialInstrcutions" placeholder="Special Instructions" rows=12></textarea>
+      </md-input-container>
+    </p>
+    <button type="submit" md-button class="background-primary text-floral-white">Next Step</button>
+  </form>
+</div>
