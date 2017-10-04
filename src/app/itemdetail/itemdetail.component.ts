@@ -24,7 +24,8 @@ export class ItemdetailComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
-    this.item = this.itemservice.getItem(id);
+    this.itemservice.getItem(id).then(item => this.item = item);
+    console.log("Items value is " + this.item);
   }
 
   goBack(): void {

@@ -10,7 +10,7 @@ import { OrderformComponent } from '../orderform/orderform.component';
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'menu', component: ItemsComponent },
+    { path: 'itemdetail', component: ItemsComponent },
     { path: 'contactus',     component: ContactComponent },
     { path: 'itemdetail/:id',     component: ItemdetailComponent },
     { path: 'order', component: OrderformComponent },

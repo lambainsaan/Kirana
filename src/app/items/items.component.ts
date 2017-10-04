@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../shared/item'; 
+import { Item } from '../shared/item';
 import { ItemService } from '../services/item.service';
 @Component({
   selector: 'app-items',
@@ -9,11 +9,11 @@ import { ItemService } from '../services/item.service';
 
 
 export class ItemsComponent implements OnInit {
-  items: Item [];
+  items: Item[];
   selectedItem;
-  constructor(private itemService: ItemService ) { }
+  constructor(private itemService: ItemService) { }
   ngOnInit() {
-    this.items = this.itemService.getItems();
+    this.itemService.getItems().then(items => this.items = items);
   }
   onSelect(item: Item) {
     this.selectedItem = item;

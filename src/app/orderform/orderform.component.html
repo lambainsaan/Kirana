@@ -37,7 +37,7 @@
         </md-hint>
       </md-input-container>
     </p>
-    <md-select placeholder="Time Slot" formControlName="slot" required dividerColor="{{(orderForm.get('slot').hasError('required') && orderForm.get('slot').touched) ? 'warn' : 'primary'}}">
+    <md-select placeholder="Time Slot" formControlName="slot" required >
       <md-option *ngFor="let slot of slots" [value]="slot">
         {{ slot }}
       </md-option>
