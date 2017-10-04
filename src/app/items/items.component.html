@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div fxFlex>
+  <div fxFlex *ngIf="items">
     <md-grid-list cols="4" rowHeight="400px" gutterSize="1em">
       <md-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]">
         <md-card>
@@ -19,5 +19,10 @@
         </md-card>
       </md-grid-tile>
     </md-grid-list>
+  </div>
+
+  <div [hidden]="items">
+    <md-spinner></md-spinner>
+    <h4>Loading . . . Please Wait</h4>
   </div>
 </div>

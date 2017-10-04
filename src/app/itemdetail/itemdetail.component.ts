@@ -8,6 +8,8 @@ import { ITEMS } from '../shared/items';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import 'rxjs/add/operator/switchMap';
+
 
 @Component({
   selector: 'app-itemdetail',
@@ -17,15 +19,25 @@ import { Location } from '@angular/common';
 export class ItemdetailComponent implements OnInit {
 
   item: Item;
+  itemIds: number[];
+  prev: number;
+  next: number;
 
   constructor(private itemservice: ItemService,
     private route: ActivatedRoute,
     private location: Location) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
-    this.itemservice.getItem(id).then(item => this.item = item);
-    console.log("Items value is " + this.item);
+    this.itemservice.getItemIds().subscribe(itemIds => this.itemIds = itemIds);
+    this.route.params
+      .switchMap((params: Params) => this.itemservice.getItem(+params['id']))
+      .subscribe(item => { this.item = item; this.setPrevNext(item.id); });
+    }
+
+  setPrevNext(itemId: number) {
+    const index = this.itemIds.indexOf(itemId);
+    this.prev = this.itemIds[(this.itemIds.length + index - 1) % this.itemIds.length];
+    this.next = this.itemIds[(this.itemIds.length + index + 1) % this.itemIds.length];
   }
 
   goBack(): void {

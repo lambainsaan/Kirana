@@ -1,8 +1,8 @@
-<div fxFlex>
+<div fxFlex *ngIf="item">
   <md-card>
     <md-card-header>
       <md-card-title>
-      <h3>{{item.name | uppercase}}</h3>
+        <h3>{{item.name | uppercase}}</h3>
       </md-card-title>
     </md-card-header>
     <img md-card-image src={{item.image}} alt={{item.name}}>
@@ -11,9 +11,16 @@
       </p>
     </md-card-content>
     <md-card-actions>
+      <button md-button [routerLink]="['/itemdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
       <button md-button (click)="goBack()">BACK</button>
       <button md-button>LIKE</button>
       <button md-button>SHARE</button>
+      <button md-button [routerLink]="['/itemdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
     </md-card-actions>
   </md-card>
+</div>
+
+<div [hidden]="item">
+  <md-spinner></md-spinner>
+  <h4>Loading . . . Please Wait</h4>
 </div>

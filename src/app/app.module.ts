@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdToolbarModule, MatGridListModule, MatListModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatDialogModule, MatSelectModule } from '@angular/material';
+import { MatProgressSpinnerModule, MdToolbarModule, MatGridListModule, MatListModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatDialogModule, MatSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -53,6 +53,7 @@ import { OrderformComponent } from './orderform/orderform.component';
     MatCheckboxModule,
     MatDialogModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

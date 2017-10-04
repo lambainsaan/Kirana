@@ -13,7 +13,7 @@ export class ItemsComponent implements OnInit {
   selectedItem;
   constructor(private itemService: ItemService) { }
   ngOnInit() {
-    this.itemService.getItems().then(items => this.items = items);
+    this.itemService.getItems().subscribe(items => this.items = items);
   }
   onSelect(item: Item) {
     this.selectedItem = item;
