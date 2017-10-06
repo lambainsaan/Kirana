@@ -26,7 +26,8 @@ export class PromotionService {
     return this.http.get(baseURL + 'promotions/' + id).map(res => this.processHTTPMsgService.extractData(res));
   }
 
+
   getFeaturedPromotion(): Observable<Promotion> {
-    return this.http.get(baseURL + 'promotions?featured=true').map(res => this.processHTTPMsgService.extractData(res));
+    return this.http.get(baseURL + 'promotions?featured=true').map(res => this.processHTTPMsgService.extractData(res)[0]);
   }
 }

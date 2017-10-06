@@ -15,9 +15,7 @@ export class ItemsComponent implements OnInit {
     @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-    console.log('hey ' + this.BaseURL);
     this.itemService.getItems().subscribe(items => this.items = items);
-    console.log( this.items );
   }
 }
 
