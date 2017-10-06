@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
 
 import { Item } from '../shared/item';
-import { ITEMS } from '../shared/items';
 
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { Item } from '../shared/item';
 import { ItemService } from '../services/item.service';
+import { Component, OnInit, Inject } from '@angular/core';
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -10,13 +11,13 @@ import { ItemService } from '../services/item.service';
 
 export class ItemsComponent implements OnInit {
   items: Item[];
-  selectedItem;
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService,
+    @Inject('BaseURL') private BaseURL) { }
+
   ngOnInit() {
+    console.log('hey ' + this.BaseURL);
     this.itemService.getItems().subscribe(items => this.items = items);
-  }
-  onSelect(item: Item) {
-    this.selectedItem = item;
+    console.log( this.items );
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { Item } from '../shared/item';
 import { ItemService } from '../services/item.service';
@@ -16,11 +16,13 @@ export class HomeComponent implements OnInit {
   promotion: Promotion;
 
   constructor(private itemservice: ItemService,
-    private promotionservice: PromotionService) { }
+    private promotionservice: PromotionService,
+    @Inject('BaseURL') private BaseURL) { }
+
 
   ngOnInit() {
     this.itemservice.getFeaturedItem().subscribe(item => this.item = item);
-    this.promotion = this.promotionservice.getFeaturedPromotion();
+    this.promotionservice.getFeaturedPromotion().subscribe(promotion => this.promotion = promotion);
   }
 
 }

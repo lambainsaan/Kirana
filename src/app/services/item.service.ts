@@ -1,30 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../shared/Item';
-import { ITEMS } from '../shared/Items';
 
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/operator/toPromise';
+
+
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+
+import { baseURL } from '../shared/baseurl';
+import { ProcessHttpmsgService } from './process-httpmsg.service';
 
 @Injectable()
 export class ItemService {
 
-  constructor() { }
+  constructor(private http: Http,
+    private processHTTPMsgService: ProcessHttpmsgService) { }
 
   getItems(): Observable<Item[]> {
-    return Observable.of(ITEMS).delay(2000);
+    return this.http.get(baseURL + 'items').map(res => this.processHTTPMsgService.extractData(res));
   }
+
   getItem(id: number): Observable<Item> {
-    return Observable.of(ITEMS.filter((item) => (item.id === id))[0]).delay(2000);
+    return this.http.get(baseURL + 'items/' + id)
+      .map(res => this.processHTTPMsgService.extractData(res));
   }
 
   getFeaturedItem(): Observable<Item> {
-    return Observable.of(ITEMS.filter((item) => item.featured)[0]).delay(2000);
+    return this.http.get(baseURL + 'items?featured=true')
+      .map(res => this.processHTTPMsgService.extractData(res)[0]);
   }
 
   getItemIds(): Observable<number[]> {
-    return Observable.of(ITEMS.map(item => item.id));
+    return this.getItems()
+    .map(items => items.map(item => item.id));
   }
 }

@@ -25,6 +25,10 @@ import 'hammerjs';
 import { ItemdetailComponent } from './itemdetail/itemdetail.component';
 import { LoginComponent } from './login/login.component';
 import { OrderformComponent } from './orderform/orderform.component';
+import { HttpModule } from '@angular/http';
+import { baseURL } from './shared/baseurl';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+
 
 @NgModule({
   declarations: [
@@ -57,8 +61,10 @@ import { OrderformComponent } from './orderform/orderform.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [ItemService, PromotionService],
+  providers: [ItemService, PromotionService, ProcessHttpmsgService, { provide: 'BaseURL', useValue: baseURL }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginComponent

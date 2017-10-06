@@ -2,12 +2,12 @@
   <md-card>
     <md-card-header>
       <md-card-title>
-        <h3>{{item.name | uppercase}}</h3>
+        <h3>{{BaseURL + item.name | uppercase}}</h3>
       </md-card-title>
     </md-card-header>
-    <img md-card-image src={{item.image}} alt={{item.name}}>
+    <img md-card-image src="{{BaseURL + item.image}}" alt="{{BaseURL + item.name}}">
     <md-card-content>
-      <p>{{item.description}}
+      <p>{{BaseURL + item.description}}
       </p>
     </md-card-content>
     <md-card-actions>
