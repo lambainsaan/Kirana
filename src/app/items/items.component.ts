@@ -11,11 +11,14 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 export class ItemsComponent implements OnInit {
   items: Item[];
+  errMess: string;
   constructor(private itemService: ItemService,
     @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-    this.itemService.getItems().subscribe(items => this.items = items);
+    this.itemService.getItems()
+      .subscribe(items => this.items = items,
+        errmess => this.errMess = <any>errmess);
   }
 }
 

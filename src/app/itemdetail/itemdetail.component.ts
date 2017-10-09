@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { ItemService } from '../services/item.service';
 
@@ -6,6 +6,7 @@ import { Item } from '../shared/item';
 
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+
 
 import 'rxjs/add/operator/switchMap';
 
@@ -21,17 +22,22 @@ export class ItemdetailComponent implements OnInit {
   itemIds: number[];
   prev: number;
   next: number;
+  errMess: String;
 
   constructor(private itemservice: ItemService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-    this.itemservice.getItemIds().subscribe(itemIds => this.itemIds = itemIds);
+    this.itemservice.getItemIds()
+      .subscribe(itemIds => this.itemIds = itemIds,
+      errmess => this.errMess = <any>errmess);
+
     this.route.params
       .switchMap((params: Params) => this.itemservice.getItem(+params['id']))
       .subscribe(item => { this.item = item; this.setPrevNext(item.id); });
-    }
+  }
 
   setPrevNext(itemId: number) {
     const index = this.itemIds.indexOf(itemId);

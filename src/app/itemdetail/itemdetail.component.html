@@ -2,12 +2,12 @@
   <md-card>
     <md-card-header>
       <md-card-title>
-        <h3>{{BaseURL + item.name | uppercase}}</h3>
+        <h3>{{ item.name | uppercase}}</h3>
       </md-card-title>
     </md-card-header>
     <img md-card-image src="{{BaseURL + item.image}}" alt="{{BaseURL + item.name}}">
     <md-card-content>
-      <p>{{BaseURL + item.description}}
+      <p>{{ item.description}}
       </p>
     </md-card-content>
     <md-card-actions>
@@ -20,7 +20,11 @@
   </md-card>
 </div>
 
-<div [hidden]="item">
+<div [hidden]="item || errMess">
   <md-spinner></md-spinner>
   <h4>Loading . . . Please Wait</h4>
+</div>
+<div *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
 </div>
