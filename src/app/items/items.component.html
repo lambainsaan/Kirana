@@ -9,8 +9,8 @@
 
   <div fxFlex *ngIf="items">
     <md-grid-list cols="4" rowHeight="400px" gutterSize="1em">
-      <md-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]">
-        <md-card>
+      <md-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]" >
+        <md-card appHighlight>
           <img md-card-image height="200px" src="{{BaseURL + item.image}}" alt="{{ item.name}}" class=".md-unstyled-image">
           <md-card-subtitle>
             {{item.name | uppercase}}
