@@ -14,29 +14,30 @@ import 'rxjs/add/operator/map';
 
 import { baseURL } from '../shared/baseurl';
 import { ProcessHttpmsgService } from './process-httpmsg.service';
+import { RestangularModule, Restangular } from 'ngx-restangular';
+
 
 @Injectable()
 export class ItemService {
 
-  constructor(private http: Http,
+  constructor(private restangular: Restangular,
     private processHTTPMsgService: ProcessHttpmsgService) { }
 
   getItems(): Observable<Item[]> {
-    return this.http.get(baseURL + 'items').map(res => this.processHTTPMsgService.extractData(res));
+    return this.restangular.all('items').getList();
   }
 
   getItem(id: number): Observable<Item> {
-    return this.http.get(baseURL + 'items/' + id)
-      .map(res => this.processHTTPMsgService.extractData(res));
+    return this.restangular.one('items/', id).get();
   }
 
   getFeaturedItem(): Observable<Item> {
-    return this.http.get(baseURL + 'items?featured=true')
-      .map(res => this.processHTTPMsgService.extractData(res)[0]);
+    return this.restangular.all('items').getList({ featured: true }).map(items => items[0]);
   }
 
   getItemIds(): Observable<number[]> {
     return this.getItems()
-    .map(items => items.map(item => item.id));
+      .map(items => { return items.map(item => item.id)})
+      .catch(error => { return error; });
   }
 }

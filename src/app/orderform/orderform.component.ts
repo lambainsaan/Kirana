@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Order, Slots } from '../shared/order';
+import { OrderService } from '../services/order.service';
+import { RestangularModule, Restangular } from 'ngx-restangular';
 
 @Component({
   selector: 'app-orderform',
@@ -12,6 +14,8 @@ export class OrderformComponent implements OnInit {
 
   orderForm: FormGroup;
   order: Order;
+  orders: Order[];
+  ordersCopy = null;
   slots = Slots;
   formErrors = {
     'name': '',
@@ -43,8 +47,11 @@ export class OrderformComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private orderService: OrderService,
+    private restangular: Restangular) {
     this.createForm();
+    this.orderService.getOrders().subscribe(orders => { this.orders = orders; this.ordersCopy = orders; });
   }
 
   ngOnInit() {
@@ -55,7 +62,7 @@ export class OrderformComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       mobileNum: [0, [Validators.required, Validators.pattern('[0-9]*')]],
       address: ['', [Validators.required, Validators.minLength(5)]],
-      landmark: ['', Validators.required, Validators.minLength(3)],
+      landmark: ['', [Validators.required, Validators.minLength(3)]],
       slot: ['', Validators.required],
       specialInstrcutions: '',
     });
@@ -87,7 +94,7 @@ export class OrderformComponent implements OnInit {
 
   onSubmit() {
     this.order = this.orderForm.value;
-    console.log(this.order);
+    this.ordersCopy.post(this.orderForm.value).subscribe(orders => this.orders = this.orders);
     this.orderForm.reset({
       name: '',
       mobileNum: 0,

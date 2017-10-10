@@ -28,6 +28,11 @@ import { OrderformComponent } from './orderform/orderform.component';
 import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+import { OrderService } from './services/order.service';
+
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
+import { HighlightDirective } from './src/app/directives/highlight.directive';
 
 
 @NgModule({
@@ -42,6 +47,7 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
     ItemdetailComponent,
     LoginComponent,
     OrderformComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -61,9 +67,10 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RestangularModule.forRoot(RestangularConfigFactory),
   ],
-  providers: [ItemService, PromotionService, ProcessHttpmsgService, { provide: 'BaseURL', useValue: baseURL }
+  providers: [ItemService, PromotionService, ProcessHttpmsgService, OrderService, { provide: 'BaseURL', useValue: baseURL }
   ],
   bootstrap: [AppComponent],
   entryComponents: [
