@@ -13,8 +13,58 @@ $background-light: #F25D5F;
 $background-pale: #F5B9BA;
 $background-moredark: #FA3A3D;
 
+.search {
+      padding: 11px 16px;
+      border-radius: 2px 0 0 2px;
+      border: 0 none;
+      outline: 0 none;
+      font-size: 15px;
+      width: 100%;
+      font-family: Roboto, Arial, sans-serif;
+      letter-spacing: 0;
+      box-sizing: border-box;
+      -webkit-appearance: textfield;
+      background-color: white;
+      -webkit-rtl-ordering: logical;
+      user-select: text;
+      cursor: auto;
+      text-rendering: auto;
+      color: initial;
+      letter-spacing: normal;
+      word-spacing: normal;
+      text-transform: none;
+      text-indent: 0px;
+      text-shadow: none;
+      display: inline-block;
+      text-align: start;
+      margin: 0em;
+      font: 13.3333px Arial;
 
 
+}
+.logo{
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+.searchButton {
+      background-color: #ffe11b;
+      border: 1px solid #ffe11b;
+      border-radius: 0 2px 2px 0;
+      color: #565656;
+      padding: 10px 0;
+      height: 40px;
+      cursor: pointer;
+      width: 100%;
+      
+    }
+    .cartButton{
+      background-color: #2469d9;
+
+    }
+    .cartSvg {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
 @mixin zero-margin($pad-up-down, $pad-left-right) {
 
   margin: 0px auto;
@@ -32,4 +82,22 @@ $background-moredark: #FA3A3D;
 
 .active {
   background: $background-moredark;
+}
+
+
+
+.headerColorScheme {
+  background-color: #2874f0
+
+}
+
+// Classes related to Grofers style categories
+@media screen and (max-width: 1260px) and (min-width: 1020px){
+  padding: 0 104px;
+}
+
+.store-card-categories {
+  background-color: #fff;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
 }

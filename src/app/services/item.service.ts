@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../shared/Item';
 
-import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -20,8 +19,7 @@ import { RestangularModule, Restangular } from 'ngx-restangular';
 @Injectable()
 export class ItemService {
 
-  constructor(private restangular: Restangular,
-    private processHTTPMsgService: ProcessHttpmsgService) { }
+  constructor(private restangular: Restangular) { }
 
   getItems(): Observable<Item[]> {
     return this.restangular.all('items').getList();
@@ -37,7 +35,6 @@ export class ItemService {
 
   getItemIds(): Observable<number[]> {
     return this.getItems()
-      .map(items => { return items.map(item => item.id)})
-      .catch(error => { return error; });
+      .map(items => { return items.map(item => item.id)});
   }
 }

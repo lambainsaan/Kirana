@@ -8,20 +8,20 @@
   </div>
 
   <div fxFlex *ngIf="items">
-    <md-grid-list cols="4" rowHeight="400px" gutterSize="1em">
-      <md-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]" >
-        <md-card appHighlight>
-          <img md-card-image height="200px" src="{{BaseURL + item.image}}" alt="{{ item.name}}" class=".md-unstyled-image">
-          <md-card-subtitle>
+    <mat-grid-list cols="4" rowHeight="400px" gutterSize="1em">
+      <mat-grid-tile *ngFor="let item of items" [routerLink]="['/itemadetail', item.id]" >
+        <mat-card appHighlight>
+          <img mat-card-image height="200px" src="{{baseURL + item.image}}" alt="{{ item.name}}" class=".mat-unstyled-image">
+          <mat-card-subtitle>
             {{item.name | uppercase}}
-          </md-card-subtitle>
-          <md-card-content>&#x20B9; {{ item.price }}</md-card-content>
-        </md-card>
-      </md-grid-tile>
-    </md-grid-list>
+          </mat-card-subtitle>
+          <mat-card-content>&#x20B9; {{ item.price }}</mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
   <div [hidden]="items || errMess">
-    <md-spinner></md-spinner>
+    <mat-spinner></mat-spinner>
     <h4>Loading . . . Please Wait</h4>
   </div>
   <div *ngIf="errMess">

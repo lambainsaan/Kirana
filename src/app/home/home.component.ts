@@ -4,6 +4,8 @@ import { Item } from '../shared/item';
 import { ItemService } from '../services/item.service';
 import { Promotion } from '../shared/promotion';
 import { PromotionService } from '../services/promotion.service';
+import { baseURL } from '../shared/baseurl';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private itemservice: ItemService,
     private promotionservice: PromotionService,
-    @Inject('BaseURL') private BaseURL) { }
+    @Inject('BaseURL') private baseURL) { }
 
 
   ngOnInit() {

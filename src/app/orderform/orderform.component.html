@@ -4,49 +4,49 @@
 
   <form novalidate [formGroup]="orderForm" (ngSubmit)="onSubmit()">
     <p>
-      <md-input-container class="half-width" dividerColor="{{ formErrors.name ? 'warn' : 'primary'}}">
-        <input mdInput formControlName="name" placeholder="Name" type="text" required>
-        <md-hint>
+      <mat-input-container class="half-width" dividerColor="{{ formErrors.name ? 'warn' : 'primary'}}">
+        <input matInput formControlName="name" placeholder="Name" type="text" required>
+        <mat-hint>
           <span [hidden]="!(formErrors.name)">
                   {{ formErrors.name }}</span>
-        </md-hint>
-      </md-input-container>
+        </mat-hint>
+      </mat-input-container>
     </p>
     <p>
-      <md-input-container class="half-width" dividerColor="{{ formErrors.mobileNum ? 'warn' : 'primary'}}">
-        <input mdInput formControlName="mobileNum" placeholder="Mobile Number" type="tel" required>
-        <md-hint>
+      <mat-input-container class="half-width" dividerColor="{{ formErrors.mobileNum ? 'warn' : 'primary'}}">
+        <input matInput formControlName="mobileNum" placeholder="Mobile Number" type="tel" required>
+        <mat-hint>
           <span [hidden]="!(formErrors.mobileNum)">
                   {{ formErrors.mobileNum }} </span>
-        </md-hint>
-      </md-input-container>
+        </mat-hint>
+      </mat-input-container>
     </p>
     <p>
-      <md-input-container class="full-width" dividerColor="{{ formErrors.address ? 'warn' : 'primary'}}">
-        <textarea mdInput formControlName="address" placeholder="Address" rows=12></textarea>
-        <md-hint>
+      <mat-input-container class="full-width" dividerColor="{{ formErrors.address ? 'warn' : 'primary'}}">
+        <textarea matInput formControlName="address" placeholder="Address" rows=12></textarea>
+        <mat-hint>
           <span [hidden]="!(formErrors.address)">
                    {{ formErrors.address }} </span>
-        </md-hint>
-      </md-input-container>
-      <md-input-container dividerColor="{{ formErrors.landmark ? 'warn' : 'primary'}}">
-        <input mdInput formControlName="landmark" placeholder="Nearest Landmark" type="text">
-        <md-hint>
+        </mat-hint>
+      </mat-input-container>
+      <mat-input-container dividerColor="{{ formErrors.landmark ? 'warn' : 'primary'}}">
+        <input matInput formControlName="landmark" placeholder="Nearest Landmark" type="text">
+        <mat-hint>
           <span [hidden]="!( formErrors.landmark )">
                   {{ formErrors.landmark }} </span>
-        </md-hint>
-      </md-input-container>
+        </mat-hint>
+      </mat-input-container>
     </p>
-    <md-select placeholder="Time Slot" formControlName="slot" required>
-      <md-option *ngFor="let slot of slots" [value]="slot">
+    <mat-select placeholder="Time Slot" formControlName="slot" required>
+      <mat-option *ngFor="let slot of slots" [value]="slot">
         {{ slot }}
-      </md-option>
-    </md-select>
+      </mat-option>
+    </mat-select>
     <p>
-      <md-input-container class="full-width">
-        <textarea mdInput formControlName="specialInstrcutions" placeholder="Special Instructions" rows=12></textarea>
-      </md-input-container>
+      <mat-input-container class="full-width">
+        <textarea matInput formControlName="specialInstrcutions" placeholder="Special Instructions" rows=12></textarea>
+      </mat-input-container>
     </p>
-    <button type="submit" md-button class="background-primary text-floral-white">Next Step</button>
+    <button type="submit" mat-button class="background-primary text-floral-white">Next Step</button>
   </form>
 </div>

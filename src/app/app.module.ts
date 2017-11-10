@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MdToolbarModule, MatGridListModule, MatListModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatDialogModule, MatSelectModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatGridListModule, MatListModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatDialogModule, MatSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -33,7 +33,10 @@ import { OrderService } from './services/order.service';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
 import { HighlightDirective } from './src/app/directives/highlight.directive';
-
+import { CartComponent } from './cart/cart.component';
+import { CartsummaryComponent } from './cartsummary/cartsummary.component';
+import { CartitemdetailComponent } from './cartitemdetail/cartitemdetail.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,11 +51,13 @@ import { HighlightDirective } from './src/app/directives/highlight.directive';
     LoginComponent,
     OrderformComponent,
     HighlightDirective,
+    CartComponent,
+    CartsummaryComponent,
+    CartitemdetailComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
     FlexLayoutModule,
     MatListModule,
     MatGridListModule,
@@ -69,6 +74,7 @@ import { HighlightDirective } from './src/app/directives/highlight.directive';
     ReactiveFormsModule,
     HttpModule,
     RestangularModule.forRoot(RestangularConfigFactory),
+    HttpClientModule  
   ],
   providers: [ItemService, PromotionService, ProcessHttpmsgService, OrderService, { provide: 'BaseURL', useValue: baseURL }
   ],
