@@ -1,4 +1,28 @@
-<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-mat="space-around center"
+<app-carousel></app-carousel>
+<!-- <mat-content layout-padding> -->
+  <mat-grid-list cols="{{ cols|async }}" mat-cols-gt-mat="3" mat-cols-sm="1" mat-cols-mat="2" rowHeight="150px">
+    <mat-grid-tile *ngFor="let category of categories">
+      <a href="{{ category.redirect }}" id="A_6"></a>
+      <div id="DIV_7">
+        <div id="DIV_8">
+          <img src="{{ category.url }}" alt="{{ category.name }}" id="IMG_9" />
+        </div>
+        <div id="DIV_10">
+          <div id="DIV_11">
+            {{ category.name }}
+          </div>
+          <div id="DIV_12">
+            <div id="DIV_13">
+              {{ category.description }}
+              <wbr id="WBR_14" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+<!-- </mat-content> -->
+<div class="containerPersonal" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-mat="space-around center"
   fxLayoutGap="10px">
 
   <mat-card *ngIf="item" fxFlex>

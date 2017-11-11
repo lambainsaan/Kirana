@@ -14,7 +14,7 @@ $background-pale: #F5B9BA;
 $background-moredark: #FA3A3D;
 
 .search {
-      padding: 11px 16px;
+      // padding: 11px 16px;
       border-radius: 2px 0 0 2px;
       border: 0 none;
       outline: 0 none;
@@ -50,7 +50,7 @@ $background-moredark: #FA3A3D;
       border: 1px solid #ffe11b;
       border-radius: 0 2px 2px 0;
       color: #565656;
-      padding: 10px 0;
+      // padding: 10px 0;
       height: 40px;
       cursor: pointer;
       width: 100%;
@@ -71,7 +71,7 @@ $background-moredark: #FA3A3D;
   padding: $pad-up-down $pad-left-right;
 }
 
-.jumbotron {
+.jumbotronOwn {
   @include zero-margin(70px, 30px);
   background: $background-light;
   color: floralwhite;

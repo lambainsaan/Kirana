@@ -37,6 +37,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartsummaryComponent } from './cartsummary/cartsummary.component';
 import { CartitemdetailComponent } from './cartitemdetail/cartitemdetail.component';
 import {HttpClientModule} from '@angular/common/http';
+import { CarouselComponent } from './carousel/carousel.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import {HttpClientModule} from '@angular/common/http';
     CartComponent,
     CartsummaryComponent,
     CartitemdetailComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
